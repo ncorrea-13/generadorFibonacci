@@ -31,9 +31,9 @@ def clasificar_poker(digitos):
 def sistema_general(tipo, test, semilla, a, c, m, n, umbral):
     if tipo == "Variable Aleatoria":
         if test == "Transformada Inversa":
-            return transformada_inversa_discreta(n)
+            return transformada_inversa_discreta(n, valorSemilla=semilla)
         elif test == "Aceptación-Rechazo":
-            return aceptacion_rechazo_continua(n)
+            return aceptacion_rechazo_continua(n, valorSemilla=semilla)
         else:
             return None, "❌ Este método corresponde a variables aleatorias."
 
