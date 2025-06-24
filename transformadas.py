@@ -5,12 +5,12 @@ from generador import generador_fibonacci
 
 
 # Transformada Inversa para variable aleatoria discreta
-def transformada_inversa_discreta(n, valorSemilla=None):
+def transformada_inversa_discreta(n):
     valores = [1, 2, 3, 4]
     probabilidades = [0.1, 0.2, 0.3, 0.4]
     acumulada = [sum(probabilidades[: i + 1]) for i in range(len(probabilidades))]
     resultados = []
-    valores_aleatorios = generador_fibonacci(n, valorSemilla=valorSemilla)
+    valores_aleatorios = generador_fibonacci(n)
     for u in valores_aleatorios:
         for i, p_acum in enumerate(acumulada):
             if u <= p_acum:
@@ -35,14 +35,14 @@ def transformada_inversa_discreta(n, valorSemilla=None):
 
 
 # Aceptación y Rechazo para variable aleatoria continua
-def aceptacion_rechazo_continua(n, valorSemilla=None):
+def aceptacion_rechazo_continua(n):
     a, b = 0, 1
     M = 2
     muestras = []
     log_resultado = []
 
-    r1_vals = generador_fibonacci(n, valorSemilla=valorSemilla)
-    r2_vals = generador_fibonacci(n, valorSemilla=valorSemilla)
+    r1_vals = generador_fibonacci(n)
+    r2_vals = generador_fibonacci(n)
 
     for r1, r2 in zip(r1_vals, r2_vals):
         x_star = a + (b - a) * r1
